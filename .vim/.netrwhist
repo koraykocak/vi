@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/korayk/work/2_clean_beta/netflix/brutus9723x-unified-20121210/AppLibs/thirdparty/netflix/3.2'
+let g:netrw_dirhist_2='/home/korayk/work/2_clean_beta/netflix/brutus9723x-unified-20121210/AppLibs/thirdparty/netflix/3.2/qt-build'
+let g:netrw_dirhist_3='/home/korayk/work/2_clean_beta/netflix/brutus9723x-unified-20121210/AppLibs/thirdparty/netflix/3.2/qt-build/lib'
