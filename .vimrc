@@ -9,6 +9,10 @@ nnoremap <silent> <Tab><Tab>l :tabnext<CR>
 nnoremap <silent> <Tab><Tab>h :tabprev<CR>
 nnoremap <silent> <Tab><Tab>w :tabclose<CR>
 
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> <C-s> :w<CR>
+
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
