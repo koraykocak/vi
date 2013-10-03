@@ -2,6 +2,7 @@ set number
 set nocp
 set incsearch
 set ignorecase
+set autoindent
 
 filetype plugin on
 
@@ -31,6 +32,8 @@ augroup CursorLine
 augroup END
 
 hi CursorLine   cterm=NONE ctermbg=233
+
+map <leader>r :NERDTreeFind<cr><S-F12>
 
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
