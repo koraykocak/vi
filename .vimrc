@@ -10,8 +10,27 @@ nnoremap <silent> <Tab><Tab>l :tabnext<CR>
 nnoremap <silent> <Tab><Tab>h :tabprev<CR>
 nnoremap <silent> <Tab><Tab>w :tabclose<CR>
 
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
+nnoremap  ;  :
+" nnoremap  :  ;
+
+
+" nnoremap <silent> n nzz
+" nnoremap <silent> N Nzz
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+highlight WhiteOnRed ctermbg=White ctermfg=Black 
+
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
 nnoremap <silent> <C-s> :w<CR>
 
 autocmd VimEnter * NERDTree
