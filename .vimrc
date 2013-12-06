@@ -6,9 +6,14 @@ set autoindent
 
 filetype plugin on
 
-nnoremap <silent> <Tab><Tab>l :tabnext<CR>
-nnoremap <silent> <Tab><Tab>h :tabprev<CR>
-nnoremap <silent> <Tab><Tab>w :tabclose<CR>
+" nnoremap <silent> <Tab><Tab>l :tabnext<CR>
+" nnoremap <silent> <Tab><Tab>h :tabprev<CR>
+" nnoremap <silent> <Tab><Tab>w :tabclose<CR>
+
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 nnoremap  ;  :
 " nnoremap  :  ;
@@ -16,8 +21,8 @@ nnoremap  ;  :
 
 " nnoremap <silent> n nzz
 " nnoremap <silent> N Nzz
-nnoremap <silent> n   n:call HLNext(0.4)<cr>
-nnoremap <silent> N   N:call HLNext(0.4)<cr>
+nnoremap <silent> n   n:call HLNext(0.1)<cr>zz
+nnoremap <silent> N   N:call HLNext(0.1)<cr>zz
 highlight WhiteOnRed ctermbg=White ctermfg=Black 
 
 function! HLNext (blinktime)
