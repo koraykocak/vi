@@ -4,6 +4,9 @@ set incsearch
 set ignorecase
 set autoindent
 
+set title
+set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+
 filetype plugin on
 
 " nnoremap <silent> <Tab><Tab>l :tabnext<CR>
