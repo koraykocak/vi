@@ -46,13 +46,11 @@ nnoremap <silent> <C-s> :w<CR>
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
-autocmd VimEnter * wincmd w
+autocmd VimEnter * wincmd p
+" autocmd BufEnter * wincmd w
 
 map <C-F6> :ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
-nnoremap <S-h> gT
-nnoremap <S-l> gt
 
 augroup CursorLine
   au!
@@ -63,6 +61,8 @@ augroup END
 hi CursorLine   cterm=NONE ctermbg=233
 
 map <leader>r :NERDTreeFind<cr><S-F12>
+
+nmap <F8> :TagbarToggle<CR>
 
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
