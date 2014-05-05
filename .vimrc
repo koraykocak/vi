@@ -15,8 +15,11 @@ filetype plugin on
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+nmap <CR> o<Esc>
 
 :nnoremap gr :Ack <cword> *<CR>
 
@@ -67,3 +70,4 @@ nmap <F8> :TagbarToggle<CR>
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
 
+colorscheme desert
