@@ -126,8 +126,11 @@ nnoremap  ;  :
 
 " TODO: not sure about opening the NERDTree automatically.
 " NERDTree fails when there is more than one Window.
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
+" You don't want NERDTree open all the time. It confuses many actions
+" involving buffers.
+map <silent> <C-n> :NERDTreeToggle<CR>
 
 " TODO: not used much
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
