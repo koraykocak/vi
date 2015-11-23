@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Set Minimum Brightness
+Icon=/home/korayk/work/installed/android-studio/bin/studio.png
+Exec=/home/korayk/work/set_brightness_minimum.sh
+Categories=System;Settings;
+Keywords=Panel;Brightness;Minimum;Power;Battery;
