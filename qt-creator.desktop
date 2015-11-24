@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Qt Creator
+Icon=/home/korayk/Qt/Tools/QtCreator/share/qtcreator/templates/wizards/qtcreatorplugin/qtcreator_logo_24.png"
+Exec="/home/korayk/Qt/Tools/QtCreator/bin/qtcreator"
+Comment=Not an Idea but works...
+Categories=Development;IDE;
+Terminal=false
