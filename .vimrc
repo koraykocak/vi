@@ -58,10 +58,6 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 " Pressing Ctrl+P will start fuzzy search within file names
 
-Plugin 'Valloric/YouCompleteMe'
-" No need to press anything, starts completion suggestions automatically.
-" Couldn't get it fetch identifiers from tags files yet.
-
 Plugin 'TComment'
 " Automatic commenting of the code. Either select lines in visual mode and
 " press "gc", or when on a line press "gcc"
@@ -71,6 +67,9 @@ Plugin 'Conque-GDB'
 
 " COLOR SCHEMES
 Plugin 'altercation/vim-colors-solarized.git'
+
+" vim-airline
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,7 +90,7 @@ filetype plugin indent on    " required
 
 """"""""""""" COLORSCHEME """""""""""""
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 set number
 set relativenumber
@@ -119,6 +118,8 @@ set nobackup
 set noswapfile
 set undofile
 set title
+
+set clipboard=unnamed
 
 filetype plugin on
 
@@ -227,4 +228,7 @@ let g:buffergator_split_size = 30
 
 """""""""""' YouCompleteMe Tweaks """"""""""""""""""
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+"""""""""""' Vim-Airline Tweaks """"""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
 
