@@ -70,6 +70,12 @@ Plugin 'altercation/vim-colors-solarized.git'
 
 " vim-airline
 Plugin 'bling/vim-airline'
+"
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" YCM Geneator for YouCompleteMe
+Plugin 'rdnetto/YCM-Generator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,7 +96,7 @@ filetype plugin indent on    " required
 
 """"""""""""" COLORSCHEME """""""""""""
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 
 set number
 set relativenumber
@@ -146,7 +152,7 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 "  au WinLeave * setlocal nocursorline
 " augroup END
 "
-" hi CursorLine   cterm=NONE ctermbg=233
+hi CursorLine   cterm=NONE ctermbg=233
 "@@@@@"
 
 map <C-F5> :bo cope<CR>
@@ -155,8 +161,8 @@ map <C-F5> :bo cope<CR>
 nnoremap gr :Ag! <cword> *<CR>
 
 " Buffer navigation
-map <S-J> :bnext<cr>
-map <S-K> :bprevious<cr>
+map <S-K> :bnext<cr>
+map <S-J> :bprevious<cr>
 
 " with this, we can now type ",." to exit out of insert mode
 " if we really wanted to type ",.", then just type one char, wait half a sec,
@@ -226,9 +232,18 @@ let g:buffergator_autoupdate = 1
 " let g:buffergator_autodismiss_on_select = 0
 let g:buffergator_split_size = 30
 
+"""" Add Qt tags""""
+set tags+=~/Qt/qt.tags
+
 """""""""""' YouCompleteMe Tweaks """"""""""""""""""
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
+
 
 """""""""""' Vim-Airline Tweaks """"""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 

@@ -5,9 +5,9 @@ export ZSH=/home/korayk/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="muse"
 # ZSH_THEME="crunch"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,11 +51,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git battery emoji-cloc)
+plugins=(git battery emoji-cloc catimg last-working-dir)
 
 # User configuration
 
-export PATH="$HOME/work/qt/qt-everywhere-opensource-src-5.5.1/qtbase/bin:$HOME/install/gradle/gradle-2.4/bin:$PATH"
+export PATH="$HOME/Qt/5.5/gcc_64/bin:$HOME/install/gradle/gradle-2.4/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
