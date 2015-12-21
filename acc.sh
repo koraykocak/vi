@@ -4,7 +4,7 @@
 # sleep 5
 
 #gets the hardware id's of all mice plugged into the system
-hardwareIds=$(xinput | grep -i Logitech | awk '{print substr($(NF-3),4)}')
+hardwareIds=$(xinput | grep -i 'Logitech\|mouse' | awk '{print substr($(NF-3),4)}')
 
 #turn off mouse acceleration
 for i in $hardwareIds
