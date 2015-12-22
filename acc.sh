@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Add this script to startup applications
+
 #wait for the desktop to settle
 # sleep 5
 
