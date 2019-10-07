@@ -7,17 +7,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
-Plug 'yggdroot/indentline'
-" Plug 'yuttie/comfortable-motion.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fubitive'
 Plug 'franca/misc/vim-highlight'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'altercation/vim-colors-solarized'
+Plug 'rhysd/vim-clang-format'
+Plug 'zxqfl/tabnine-vim'
 
 
 " Initialize plugin system
 call plug#end()
+
+" colorscheme solarized
 
 filetype plugin on
 
@@ -60,6 +63,9 @@ endif
 
 map <silent> <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
 
 " Tab navigation
 " map <S-K> :tabnext<cr>
@@ -88,3 +94,4 @@ vnoremap > >gv
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+let g:clang_format#detect_style_file = 1
