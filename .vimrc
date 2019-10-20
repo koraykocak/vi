@@ -1,6 +1,9 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -10,7 +13,6 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fubitive'
-Plug 'franca/misc/vim-highlight'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rhysd/vim-clang-format'
