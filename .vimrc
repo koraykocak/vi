@@ -52,6 +52,7 @@ set noswapfile
 set undofile
 set title
 " set autowrite
+set mouse=n
 
 set clipboard=unnamed
 
