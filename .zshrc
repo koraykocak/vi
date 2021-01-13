@@ -1,5 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/kocak/.oh-my-zsh"
@@ -9,8 +16,8 @@
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,46 +106,38 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-export PATH=$HOME/installed/:$HOME/installed/p4v-2018.3.1719707/bin/:$HOME/installed/gitkraken/:$HOME/installed/cquery/build/release/bin:$PATH
+# export PATH=$HOME/installed/:$HOME/installed/p4v-2018.3.1719707/bin/:$HOME/installed/gitkraken/:$HOME/installed/cquery/build/release/bin:$HOME/installed/AndroidStudio/android-studio/bin:$PATH
+export PATH=$HOME/installed/AndroidStudio/android-studio/bin:$HOME/installed/BatchRouter:$PATH
 
-export QT5_LINUX64_PATH=/home/kocak/Qt/5.12.2/gcc_64
+export QT5_LINUX64_PATH=/home/kocak/Qt/5.12.9/gcc_64
+export LD_LIBRARY_PATH=/home/kocak/Qt/5.12.9/gcc_64/lib
 
 # Mainly for git results not to be paginated by less, when the results fit a single page
 export LESS="-F -X $LESS"
 
+export CONAN_CMAKE_GENERATOR=Ninja
+export CONAN_DEFAULT_PROFILE_PATH=linux_x86_64-clang5
+
+# export ANDROID_HOME=~/Android
+export ANDROID_SDK_ROOT=~/Android/Sdk
+
 
 QTNAVUI_PATH=/home/kocak/QtNavUi/qt-navui
-YAML_PATH=Build/Linux-x86_64-tracy.yaml
+YAML_PATH=Build/Linux-x86_64.yaml
+YAML_PATH_ASAN=Build/Linux-x86_64-Asan.yaml
+
+IS_OFFLINE=true
+DOCKER_VERSION=0.5.2
 
 alias aga="ag --skip-vcs-ignores"
 
-alias nab="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -w $QTNAVUI_PATH qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 Build/build.py -f $YAML_PATH -m Debug NavApp"
-alias nabr="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -w $QTNAVUI_PATH qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 Build/build.py -f $YAML_PATH -m Release NavApp"
-alias nafb="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -w $QTNAVUI_PATH qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 Build/build.py -f $YAML_PATH -m Debug"
-alias nat="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -w $QTNAVUI_PATH qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 Build/build.py -f $YAML_PATH -m Debug -s Test"
-alias nai="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -w $QTNAVUI_PATH qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 Build/build.py -f $YAML_PATH -m Debug install install_symlinks"
 
-alias na="cd /home/kocak/QtNavUi/qt-navui/Build/Output/run/x86_64-Linux-tracy/Debug/NavApp/; LD_LIBRARY_PATH=/home/kocak/Qt/5.12.2/gcc_64/lib /home/kocak/QtNavUi/qt-navui/Build/Output/run/x86_64-Linux-tracy/Debug/NavApp/NavApp; cd -"
-# alias nb="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -e DISPLAY="$DISPLAY"  -v /home/kocak/Maps/:/home/kocak/Maps/ -v /tmp/.X11-unix:/tmp/.X11-unix:rw --privileged -e QT_X11_NO_MITSHM=1  -w "$QTNAVUI_PATH/Build/Output/run/x86_64-Linux/Debug/NavApp" qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 bash"
-# alias nv="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -e DISPLAY="$DISPLAY"  -v /home/kocak/Maps/:/home/kocak/Maps/ -v /tmp/.X11-unix:/tmp/.X11-unix:rw --privileged -e QT_X11_NO_MITSHM=1  -w "$QTNAVUI_PATH/Build/Output/run/x86_64-Linux/Debug/Tool" qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 ./ApiKitVerificationTool"
-# alias nm="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -e DISPLAY="$DISPLAY"  -v /home/kocak/Maps/:/home/kocak/Maps/ -v /tmp/.X11-unix:/tmp/.X11-unix:rw --privileged -e QT_X11_NO_MITSHM=1  -w "$QTNAVUI_PATH/Build/Output/run/x86_64-Linux/Debug/NavApp" qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 ./Widget.MiniMap"
-# alias nk="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -e DISPLAY="$DISPLAY"  -v /home/kocak/Maps/:/home/kocak/Maps/ -v /tmp/.X11-unix:/tmp/.X11-unix:rw --privileged -e QT_X11_NO_MITSHM=1  -w "$QTNAVUI_PATH/Build/Output/run/x86_64-Linux/Debug/NavApp" qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 ./NavKitApp.NDS"
-# alias nd="docker run --rm -it --network host -u `id -u`:`id -g` -e HOME=/tmp -v /home/kocak/ivy:/tmp -v $QTNAVUI_PATH:$QTNAVUI_PATH -e DISPLAY="$DISPLAY"  -v /home/kocak/Maps/:/home/kocak/Maps/ -v /tmp/.X11-unix:/tmp/.X11-unix:rw --privileged -e QT_X11_NO_MITSHM=1  -w "$QTNAVUI_PATH/Build/Output/run/x86_64-Linux/Debug/NavApp" qt-navui-docker.navkit-pipeline.tt3.com/tomtom/build-x86_64:0.3.3 gdbserver :2122 ./NavApp"
+alias t="~/.todo/todo.sh"
 
-echo "
-nc - cd to QtNavUi folder
-nab - Build QtNavUi
-nat - Build QtNavUi Tests
-nai - Install QtNavUi
+alias stu="nohup studio.sh > /dev/null &"
+alias emu="nohup $HOME/Android/Sdk/emulator/emulator -avd IVI_29 > /dev/null &"
 
-na - Start NavApp
-nv - Start ApiVerificationTool
-nm - Start Widget.MiniMap
-nk - Start NavKitApp.NDS
-nd - Start NavApp on gdbserver
-nb - Start bash
-"
-
+alias rm=trash
 
 # setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -152,3 +151,9 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 # setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 # setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
